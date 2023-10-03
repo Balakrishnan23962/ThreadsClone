@@ -11,11 +11,7 @@ struct ThreadCell: View {
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 14) {
-                Image(.ban)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
+               CircularImageView()
                 VStack(alignment: .leading, spacing: 3) {
                     HStack {
                         Text("Ban the Undead")

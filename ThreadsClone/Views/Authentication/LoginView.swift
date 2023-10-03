@@ -40,7 +40,7 @@ struct LoginView: View {
                     
                 }, label: {
                     Text("Login")
-                        .buttonModifier()
+                        .buttonModifier(width: 320, height: 44)
                 })
                 
                 Spacer()

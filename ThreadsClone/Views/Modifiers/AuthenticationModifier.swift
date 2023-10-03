@@ -13,8 +13,8 @@ extension View {
     func textFieldModifier() -> some View {
         modifier(TextFieldModifier())
     }
-    func buttonModifier() -> some View {
-        modifier(ButtonModifier())
+    func buttonModifier(width: CGFloat, height: CGFloat) -> some View {
+        modifier(ButtonModifier(width: width, height: height))
     }
 }
 
@@ -30,12 +30,14 @@ struct TextFieldModifier: ViewModifier {
 }
 
 struct ButtonModifier: ViewModifier {
+    let width: CGFloat
+    let height: CGFloat
     func body(content: Content) -> some View {
         content
             .foregroundStyle(.white)
             .font(.subheadline)
             .fontWeight(.semibold)
-            .frame(width: 320, height: 44)
+            .frame(width: width, height: height)
             .background(.black)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }

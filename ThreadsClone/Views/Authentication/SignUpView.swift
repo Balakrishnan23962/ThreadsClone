@@ -34,7 +34,7 @@ struct SignUpView: View {
             }, label: {
                 Text("Sign Up")
             })
-            .buttonModifier()
+            .buttonModifier(width: 340, height: 44)
             .padding(.vertical)
             Spacer()
         }
