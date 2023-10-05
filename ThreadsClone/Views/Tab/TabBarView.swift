@@ -10,9 +10,8 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedTabIndex = 0
     var body: some View {
-        TabView(selection: $selectedTabIndex,
-                content:  {
-           FeedView()
+        TabView(selection: $selectedTabIndex) {
+        FeedView()
                 .tabItem {
                     Label("Home", systemImage: selectedTabIndex == 0 ? "house.fill" : "house")
                         .environment(\.symbolVariants, selectedTabIndex == 0 ? .fill : .none)
@@ -25,7 +24,7 @@ struct TabBarView: View {
                 }
                 .onAppear { selectedTabIndex = 1 }
                 .tag(1)
-            ThreadView()
+            Text("")
                 .tabItem {
                     Label("Upload", systemImage: "plus")
                 }
@@ -45,6 +44,11 @@ struct TabBarView: View {
                 }
                 .onAppear { selectedTabIndex = 4 }
                 .tag(4)
+        }
+        .sheet(isPresented: .constant(selectedTabIndex == 2), onDismiss: {
+            selectedTabIndex = 0
+        }, content: {
+            ThreadView()
         })
         .tint(.black)
     }

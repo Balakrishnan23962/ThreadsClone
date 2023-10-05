@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var selectedFilter: ProfileEnum = .threads
+  
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -37,9 +39,11 @@ struct ProfileView: View {
                     Text("Follow")
                         .buttonModifier(width: 352, height: 32)
                 })
+                ThreadsAndReplies(selectedFilter: selectedFilter)
             }
+            .padding(.vertical, 8)
         }
-        .padding()
+        .padding(.horizontal)
         .scrollIndicators(.hidden)
     }
 }
