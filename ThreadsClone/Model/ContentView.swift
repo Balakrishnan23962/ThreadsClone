@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isLoggedIn = false
     var body: some View {
-        TabBarView()
+        VStack {
+            if isLoggedIn {
+                TabBarView()
+            }
+            else {
+                LoginView()
+            }
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ThreadView: View {
+    @Environment(\.dismiss) var dismiss
     @State var caption = ""
     var body: some View {
         NavigationStack {
@@ -35,7 +36,7 @@ struct ThreadView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
-                        
+                        dismiss()
                     }, label: {
                         Text("Cancel")
                     })
